@@ -1,70 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Image Row Display</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Row Display</title>
 
-  <link href="style.css" rel="stylesheet">
-    
-</head>
-<body>
-  <!--thanh cc-->
-  <nav>
-    <ul>
-      <li>
-        <a href="index.html">Trang chủ</a>
-      </li>
-      <li>
-        <a href="#">Xếp hạng</a>
-      </li>
-      <li>
-        <a href="#">Dịch vụ</a>
-      </li>
-      <li>
-        <a href="#">Đánh giá</a>
-      </li>
-    </ul>
-  </nav>
-  <div class=" banner">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--linkicon-->
 
-  </div>
-  <div class="container">
-    <div class="image-box"><img id="img1" src="" alt="Image 1" />
-      <p class="text-overlay">Đập cửa ông</p>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"> <!--Phông chữ-->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><!--icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      href="https://db.onlinewebfonts.com/c/12ece9d4b11e224fbbd0b5ca246bb213?family=Reey+Regular"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+  </head>
+  <body>
+    <!--thanh cc-->
+    <div class="header">
+      <div class="header-contact">
+        <div class="header-left">
+          <ul>
+            <li><i class="fas fa-phone icon butten"></i>
+              <span class="info">0977574798</span>
+            </li>
+            <li>
+              <a href="mailto:your@email.com">
+                <i class="fas fa-envelope icon butten"> </i>
+                <span class="info">Phandat.Ptit@gmail.com</span>
+
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="header-right">
+          <a href="https://www.facebook.com/phandat3108" target="_blank">
+            <i class="fab fa-facebook-f icon info"></i>
+          </a>
+          <a href="https://instagram.com/yourpage" target="_blank">
+            <i class="fab fa-instagram icon info"></i>
+          </a>
+
+        </a>
+        <div class="butten-background">
+          Book now
+        </div>
+      </div>
     </div>
-    
-    <div class="image-box"><img id="img2" src="" alt="Image 2" /></div>
+    <div class="header-navbar">
+      <ul>
+        <li><a href="index.html"><img
+              src="anh/ChatGPT_Image_14_07_05_9_thg_5__2025-removebg-preview.png"></a></li>
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tour.html">Tour & Deal</a></li>
+        <li><a href="guide.html">Travel Guide</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booked.html">Booked</a></li>
+
+        <li><a href="search.html"><i class="fas fa-search"></i> </a></li>
+
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> </a></li>
+
+      </ul>
+    </div>
+  </div>
+  <!--Anh poster-->
+  <div class="poster-container">
+    <img class="poster" src="anh/004b4db9-a695-466d-9696-61cb5882ea64.png">
+  </div>
+  <!--search-->
+  <section id="99" class="search-section">
+    <form action="https://govietnamtravel.net/tours-page/" method="get"
+      class="babe-search-form">
+      <img class="icon-search" src="anh/navigation (2).png">
+      <div class="search-field">
+        <label lass="destination">
+          <i></i>
+          <span class="search-up">Where are you going?</span>
+        </label>
+        <select class="destination"></select>
+      </div>
+      <img class="icon-search" src="anh/travel (1).png">
+      <div class="search-field">
+        <label><i class="flaticon-recovery"></i>
+          <span class="search-up">Activity type</span>
+        </label>
+        <select></select>
+      </div>
+      <img class="icon-search" src="anh/wall-clock.png">
+      <div class="search-field">
+        <label><i class="flaticon-time"></i>
+          <span class="search-up">When</span>
+        </label>
+        <input type="date" color="orange">
+      </div>
+      <img class="icon-search" src="anh/family.png">
+      <div class="search-field">
+        <label><i class="flaticon-family"></i>
+          <span class="search-up">Guests</span>
+        </label>
+        <input type="number">
+      </div>
+      <img class="icon-search" src="anh/equalizer.png">
+      <div class="butten-background" style="height: 50px ; width:100px">
+        Search
+      </div>
+    </form>
+    <div>
+    </div>
+  </section>
+  <div class="chu-dep">
+    <p class="font-reey" style="font-size :20px;">Destination List</p>
+    <h3 style="font-size :60px; color:#313041">Go Exotic Places
+    </h3>
+  </div>
+  <br>
+  <br>
+  <div class="preview-picture">
+    <div class="pic">
+
+      <img src="anh/locations_1443594371_5ad8ee38fee5aa7eccfd7fe0ebb41e58.jpg"
+        style="height: 300; width: 300px;">
+    </div>
+    <div class="pic"> <img
+        src="anh/dao-lan-chau-cua-lo-ky-ao-trong-suong-som-840af9.jpg"
+        style="height: 300; width: 600px;"></div>
+    <div class="pic"><img src="anh/thac-khe-kem-8.jpg"
+        style="height: 300; width: 300px;"></div>
   </div>
 
-  <div class="container">
-    <div class="image-box"><img id="img3" src="" alt="Image 1" /></div>
-    <div class="image-box"><img id="img4" src="" alt="Image 2" /></div>
-  </div>
-
-  <div class="container">
-    <div class="image-box"><img id="img5" src="" alt="Image 1" /></div>
-    <div class="image-box"><img id="img6" src="" alt="Image 2" /></div>
-  </div>
-
-  <script>
-    // Ví dụ gọi API ngẫu nhiên để lấy ảnh
-    const apiUrls = [
-      "https://hoangsaviet.vn/contents_images/images/cua-ong-homestay-tai-nghe-an.jpg",
-      "https://mia.vn/media/uploads/blog-du-lich/chiem-bai-chua-dai-tue-02-1700724092.jpeg",
-      "https://ik.imagekit.io/tvlk/blog/2023/06/lang-sen-que-bac-acc-3.png?tr=dpr-2,w-675",
-      "https://mia.vn/media/uploads/blog-du-lich/thanh-co-vinh-012-1700059271.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/6/61/Cualovedem.jpg",
-      "https://onlinebooking.vn/wp-content/uploads/khuyen-mai-vinpeal-cua-hoi.jpg"
-    ];
-
-    document.getElementById("img1").src = apiUrls[0];
-    document.getElementById("img2").src = apiUrls[1];
-    document.getElementById("img3").src = apiUrls[2];
-    document.getElementById("img4").src = apiUrls[3];
-    document.getElementById("img5").src = apiUrls[4];
-    document.getElementById("img6").src = apiUrls[5];
-  </script>
-
-</body>
-</html>
+  <div class="event">
+    <div class="event-pic">
+      <img src="anh/unnamed.jpg">
+    </div>
+    <div class="event-info">
+      <div class="chu-dep2">
+        <p class="font-reey" style="font-size :20px;">
+          Outstanding Event</p>
+        <h3 style="font-size :60px; color:#313041">President Ho Chi Minh's
+          birthday in Sen village
+        </h3>
+        <p> Welcome to the celebration of President Ho Chi Minh’s birthday at
+          Sen Village – his beloved hometown. Discover the beauty of history and
+          culture with our professional English-speaking tour guides. Book your
+          service now: 0977 574 798.</p>
+      </div>
+    </div>
