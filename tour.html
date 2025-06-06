@@ -28,10 +28,7 @@
 
   </head>
   <body>
-    <!--thanh cc-->
-  
-
-
+ 
     <div class="header">
       <div class="header-contact">
         <div class="header-left">
@@ -63,6 +60,9 @@
         </div>
       </div>
     </div>
+    </div>
+
+    </div>
     <div class="header-navbar">
       <ul>
         <li><a href="home.html"><img
@@ -82,33 +82,70 @@
            
       </ul>
     </div>
+  <div class="poster-container" style="height: 400px;">
+     <div class="drop">
+              <div class="login-tab" onclick="logintable()">
+                 Login
+              </div>
+               <div class="signin-tab">
+               <a style="color:black" href="signin.html"> Sign in</a>
+              </div>
+            </div>
+            <img class="poster" id="posterImage" src="https://gaviaspreview.com/wp/tevily/wp-content/uploads/2020/12/slider-1.jpg">
+            <div class="box-title">
+
+            <h2 class="title-tour">
+               <span>It's time for Travel<span style="letter-spacing: -0.2px; white-space: normal;">&nbsp;</span><br></span>
+            </h2>
+            <div class="title-tour"><span >Explore Best tours of Nghe An &amp; Ha Tinh</span></div>
+  
   </div>
-  <div class="box-signin">
-  <div class="box-inside-signin">
-    <img width="100px" src="anh/ChatGPT_Image_14_07_05_9_thg_5__2025-removebg-preview.png">
-   <h1>Sign In</h1>
-  <div class="sign-minibox">
-  <label for="username" style="font-weight: bold;">Username</label>
-  <input id="username" name="username" class="sign username" type="text" placeholder="Tên đăng nhập" />
-</div>
-<div class="sign-minibox">
-  <label for="password" style="font-weight: bold;">Password</label>
-  <input id="password" name="password" class="sign password" type="password" placeholder="Mật khẩu" />
-</div>
-<div class="sign-minibox">
-  <label for="confirmPassword" style="font-weight: bold;">Confirm password</label>
-  <input id="confirmPassword" name="confirmPassword" class="sign password" type="password" placeholder="Nhập lại mật khẩu" />
-  <p id="message" style="font-weight: bold; color: red;"></p>
-
-</div>
-
-<button class="button-background" onclick="register()"style="width:80%;height:45px;">Đăng ký</button>
-
-     <a href="home.html" style="color: black;"
-     > Đã có mật khẩu ?</a>
-
+  <div  class="search-section">
+    <form 
+      class="babe-search-form">
+      <img class="icon-search" src="anh/navigation (2).png">
+      <div class="search-field">
+        <label class="destination">
+         
+          <span class="search-up">Where are you going?</span>
+        </label>
+        <select id="destinations"></select>
+      </div>
+      <img class="icon-search" src="anh/travel (1).png">
+      <div class="search-field">
+        <label><i class="flaticon-recovery"></i>
+          <span class="search-up">Activity type</span>
+        </label>
+        <select id="activity"></select>
+      </div>
+      <img class="icon-search" src="anh/wall-clock.png">
+      <div class="search-field">
+        <label><i class="flaticon-time"></i>
+          <span class="search-up">How long</span>
+        </label>
+        <input id="day" type="number" color="orange">
+      </div>
+      <img class="icon-search" src="anh/family.png">
+      <div class="search-field">
+        <label><i class="flaticon-family"></i>
+          <span class="search-up">Guests</span>
+        </label>
+        <input id="people" type="number">
+      </div>
+      <img class="icon-search" src="anh/equalizer.png">
+      <button class="butten-background"  onclick="search()" style="height: 50px ; width:100px;">
+        Search
+      </button>
+    </form>
+    <div>
+    </div>
   </div>
   </div>
+  
+  <div class="boxtours"></div>
+
+   
+
   <div class="foot">
     <div class="foot1">
       <a href="#top"><img src="anh/output-onlinepngtools.png" width="150px"></a>

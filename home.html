@@ -24,6 +24,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
   </head>
   <body>
@@ -33,9 +36,18 @@
 <div id="loginForm">
  
   <h2>Đăng nhập</h2>
-  <input type="text" placeholder="Tên đăng nhập" />
-  <input type="password" placeholder="Mật khẩu" />
-  <button>Đăng nhập</button>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Username</label>
+  <input id="username"class="sign username" type="text" placeholder="Tên đăng nhập" />
+  </div>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Password</label>
+  <input id="password" class="sign password" type="password" placeholder="Mật khẩu" />
+  </div>
+  <button class="butten-background" onclick="login()" style="width:80%;height: 45px;display:flex;">Đăng nhập</button>
+  <a href="signin.html" style="color:black">Bạn chưa có tài khoản ?</a>
+  <p id="message" style="font-weight: bold; color: red;"></p>
+  
 </div>
     <div class="header">
       <div class="header-contact">
@@ -70,20 +82,20 @@
     </div>
     <div class="header-navbar">
       <ul>
-        <li><a href="index.html"><img
+        <li><a href="home.html"><img
               src="anh/ChatGPT_Image_14_07_05_9_thg_5__2025-removebg-preview.png"></a></li>
 
-        <li><a href="index.html">Home</a></li>
+        <li><a href="home.html">Home</a></li>
         <li><a href="tour.html">Tour & Deal</a></li>
         <li><a href="guide.html">Travel Guide</a></li>
-        <li><a href="rankings.html">Rankings</a></li>
+        
         <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
+        <div class="userbox"><i class="fa-solid fa-user"></i></div>
+        <li class="search-icon" style="margin-left:50px"><a href="search.html"><i class="fas fa-search"></i> </a></li>
 
-        <li style="margin-left:150px"><a href="search.html"><i class="fas fa-search"></i> </a></li>
-
-        <li><button onclick="toggleDropdown()"   ><i  class="fas fa-sign-in-alt"></i> </button></li>
+        <li class="sign-icon"><button onclick="toggleDropdown()"   ><i  class="fas fa-sign-in-alt"></i> </button></li>
            
       </ul>
     </div>
@@ -92,7 +104,7 @@
   
   <div class="poster-container">
      <div class="drop">
-              <div class="login-tab">
+              <div class="login-tab" onclick="logintable()">
                  Login
               </div>
                <div class="signin-tab">

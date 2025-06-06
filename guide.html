@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Row Display</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet"
@@ -25,13 +24,28 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
   </head>
   <body>
     <!--thanh cc-->
+  <div id="overlay"></div>
+
+<div id="loginForm">
+ 
+  <h2>Đăng nhập</h2>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Username</label>
+  <input class="sign username" type="text" placeholder="Tên đăng nhập" />
+  </div>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Password</label>
+  <input class="sign password" type="password" placeholder="Mật khẩu" />
+  </div>
+  <button class="butten-background" style="width:80%;height: 45px;">Đăng nhập</button>
+  <a href="signin.html" style="color:black">Bạn chưa có tài khoản ?</a>
   
-
-
+</div>
     <div class="header">
       <div class="header-contact">
         <div class="header-left">
@@ -71,7 +85,7 @@
         <li><a href="home.html">Home</a></li>
         <li><a href="tour.html">Tour & Deal</a></li>
         <li><a href="guide.html">Travel Guide</a></li>
-       
+        
         <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
@@ -83,32 +97,26 @@
       </ul>
     </div>
   </div>
-  <div class="box-signin">
-  <div class="box-inside-signin">
-    <img width="100px" src="anh/ChatGPT_Image_14_07_05_9_thg_5__2025-removebg-preview.png">
-   <h1>Sign In</h1>
-  <div class="sign-minibox">
-  <label for="username" style="font-weight: bold;">Username</label>
-  <input id="username" name="username" class="sign username" type="text" placeholder="Tên đăng nhập" />
-</div>
-<div class="sign-minibox">
-  <label for="password" style="font-weight: bold;">Password</label>
-  <input id="password" name="password" class="sign password" type="password" placeholder="Mật khẩu" />
-</div>
-<div class="sign-minibox">
-  <label for="confirmPassword" style="font-weight: bold;">Confirm password</label>
-  <input id="confirmPassword" name="confirmPassword" class="sign password" type="password" placeholder="Nhập lại mật khẩu" />
-  <p id="message" style="font-weight: bold; color: red;"></p>
+   <div class="poster-container" style="height: 200px;">
+     <div class="drop">
+              <div class="login-tab" onclick="logintable()">
+                 Login
+              </div>
+               <div class="signin-tab">
+               <a style="color:black" href="signin.html"> Sign in</a>
+              </div>
+            </div>
+            <img class="poster" id="posterImage" src="https://gaviaspreview.com/wp/tevily/wp-content/uploads/2020/12/slider-1.jpg">
+            <div class="box-title">
 
-</div>
-
-<button class="button-background" onclick="register()"style="width:80%;height:45px;">Đăng ký</button>
-
-     <a href="home.html" style="color: black;"
-     > Đã có mật khẩu ?</a>
-
+            <h2 class="title-tour">
+               <span>Smart and economical travel<span style="letter-spacing: -0.2px; white-space: normal;">&nbsp;</span><br></span>
+            </h2>
+            <div class="title-tour"><span >Read and share travel experiences in Nghe An &amp; Ha Tinh</span></div>
+  
   </div>
-  </div>
+   </div>
+   <input type="text">
   <div class="foot">
     <div class="foot1">
       <a href="#top"><img src="anh/output-onlinepngtools.png" width="150px"></a>
