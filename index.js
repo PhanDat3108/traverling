@@ -1,6 +1,6 @@
 //cái ô dky dang nhap
 function toggleDropdown() {
-      let menu = document.getElementsByClassName("drop")[0];
+      let menu = document.querySelector(".drop");
       if (menu.style.display === "flex") {
         menu.style.display = "none";
       } else {
@@ -182,10 +182,22 @@ function register(){
     document.getElementById("message").textContent="Mật khẩu xác nhận không khớp"
     return
   }
-  const user={
+    let user;
+  if (username!="admin123"){
+   user={
     username:username,
     password:password,
-  }
+    role:"user"
+
+    
+  }}
+  else {
+     user={
+    username:username,
+    password:password,
+    role:"admin"
+  }}
+       
     localStorage.setItem(username, JSON.stringify(user));
     document.getElementById("message").textContent="Đăng kí thành công"
 document.getElementById("username").value=""
@@ -210,6 +222,10 @@ function login(){
       document.getElementsByClassName("message").textContent="Sai mật khẩu ùi "
       return
      }
+     if (user.role==="admin"){
+      window.open("manage.html", "managetab");
+
+     }
 
 hihi=document.querySelector("#loginForm");
 hihi.style.display="none"
@@ -221,6 +237,7 @@ document.querySelector(".userbox").style.display="flex"
 document.querySelector(".userbox").innerHTML+= " "+username
 
 }
+//hiển thị tên vs ẩn đăng nhập
 window.onload= function(){
 if (localStorage.getItem("isLogin")=="true"){
 const username = localStorage.getItem("Userinuse")
@@ -231,6 +248,33 @@ document.querySelector(".userbox").innerHTML+= " "+username
 }
 
 
+
+
+}
+// ô đăng xuất vs bôked
+function toggleDropdownLogout(){
+  let menu1 = document.getElementsByClassName("drop-logout")[0];
+      if (menu1.style.display === "flex") {
+        menu1.style.display = "none";
+      } else {
+        menu1.style.display = "flex";
+      }
+}
+//đăng xuất
+function logout(){
+  localStorage.removeItem("isLogin");
+  localStorage.removeItem("Userinuse");
+
+  document.querySelector(".sign-icon").style.display = "flex";
+  document.querySelector(".search-icon").style.display = "flex";
+  document.querySelector(".userbox").style.display = "none";
+  document.querySelector(".userbox").innerHTML = "";
+  document.querySelector(".drop-logout").style.display="none"
+  if (user.role === "admin") {
+    setTimeout(() => {
+      window.location.href = "home.html";
+    }, 100);
+  }
 
 
 }

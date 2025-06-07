@@ -89,10 +89,11 @@
         <li><a href="tour.html">Tour & Deal</a></li>
         <li><a href="guide.html">Travel Guide</a></li>
         
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">Create Tours</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
-        <div class="userbox"><i class="fa-solid fa-user"></i></div>
+        <li><a href="booked.html">About Us</a></li>
+        <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user"></i></div>
         <li class="search-icon" style="margin-left:50px"><a href="search.html"><i class="fas fa-search"></i> </a></li>
 
         <li class="sign-icon"><button onclick="toggleDropdown()"   ><i  class="fas fa-sign-in-alt"></i> </button></li>
@@ -101,8 +102,15 @@
     </div>
   </div>
   <!--Anh poster-->
-  
   <div class="poster-container">
+     <div class="drop-logout">
+              <div class="login-tab" onclick="logout()">
+                 Log Out
+              </div>
+               <div class="signin-tab">
+               <a style="color:black" href="signin.html"> Booked</a>
+              </div>
+            </div>
      <div class="drop">
               <div class="login-tab" onclick="logintable()">
                  Login
