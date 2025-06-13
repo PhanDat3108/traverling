@@ -8,7 +8,7 @@
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="index.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
       rel="stylesheet">
@@ -26,6 +26,7 @@
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 
   </head>
@@ -93,10 +94,10 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
         <li><a href="booked.html">About Us</a></li>
-        <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user"></i></div>
-        <li class="search-icon" style="margin-left:50px"><a href="search.html"><i class="fas fa-search"></i> </a></li>
+        <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user" style="color:#7a7676"></i></div>
+        <li class="search-icon" style="margin-left:50px"><a href="search.html"><i class="fas fa-search" style="color:#7a7676"></i> </a></li>
 
-        <li class="sign-icon"><button onclick="toggleDropdown()"   ><i  class="fas fa-sign-in-alt"></i> </button></li>
+        <li class="sign-icon"><button onclick="toggleDropdown()"   ><i  class="fa-solid fa-user" style="color:#7a7676"></i> </button></li>
            
       </ul>
     </div>
@@ -105,6 +106,7 @@
   <div class="poster-container">
      <div class="drop-logout">
               <div class="login-tab" onclick="logout()">
+                
                  Log Out
               </div>
                <div class="signin-tab">
@@ -113,10 +115,14 @@
             </div>
      <div class="drop">
               <div class="login-tab" onclick="logintable()">
+                <i class="fa-solid fa-right-to-bracket" style="color:#7a7676"></i>
                  Login
               </div>
                <div class="signin-tab">
-               <a style="color:black" href="signin.html"> Sign in</a>
+               <a style="color:black" href="signin.html"> 
+                <i class="fa-solid fa-user-plus" style="color:#7a7676"></i>
+                </i>
+                Sign in</a>
               </div>
             </div>
     <img class="poster" src="anh/004b4db9-a695-466d-9696-61cb5882ea64.png">
@@ -417,3 +423,6 @@
 
   </div>
 </div>
+<script src="admin.js"></script>
+<script src="index.js"></script>
+  </body>

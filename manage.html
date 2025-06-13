@@ -7,8 +7,9 @@
 
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet"
+    
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="index.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
       rel="stylesheet">
@@ -27,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <!--thanh cc-->
@@ -97,11 +98,118 @@
   </div>
   <div class="setting">
 <div class="setting-box-left">
-    <div class="select-setting"></div>
-     <div class="select-setting"></div>
-      <div class="select-setting"></div>
+    <h3 class="namepage" style="color:#d93769">NgheAn<span style="color:#9c1444">Travel</span></h3>
+    <div class="select-setting">
+        <label> <i class="fa-solid fa-chart-bar"></i> Thông số</label>
+     <ul class="manage_setting">
+        <li>Phân tích</li>
+        <li>Báo cáo</li>
+         <li>Danh sách block</li>
+     </ul>
+     <label> <i class="fa-solid fa-gear"></i> Chỉnh sửa</label>
+      <ul class="manage_setting">
+       <li style="cursor:pointer" onclick="displayadd('addtours')">Tours</li> 
+        
+        <li style="cursor:pointer" onclick="displayadd('phuongtienadd')">Phương tiện</li>
+        <li style="cursor:pointer" onclick="displayadd('locationadd')">Địa điểm</li>
+      </ul>
+      <label> <i class="fa-solid fa-handshake"></i> Kiểm soát</label>
+       <ul class="manage_setting">
+        <li>Nhân viên</li>
+        <li>Khách hàng</li>
+        <li>Voucher</li>
+        <li>Giao dịch</li>
+       </ul>
+       
+
+     </ul>
+    </div>
+    
 </div>
-<div class="setting-box-right"></div>
+<div class="setting-box-right">
+     <div class="form-box" id="addtours" >
+        <br>
+    <label for="image">Image path:</label>
+    <input type="text" id="image" placeholder="anh/your_image.jpg">
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" placeholder="Tour title...">
+
+    <label for="price">Price:</label>
+    <input type="text" id="price" placeholder="$65.00">
+
+    <label for="people">People limit:</label>
+    <input type="number" id="people" placeholder="15">
+
+    <label for="rating">Rating image path:</label>
+    <input type="text" id="rating" placeholder="anh/rating (1).png">
+
+    <label for="peoplejoin">People joined:</label>
+    <input type="number" id="peoplejoin" placeholder="230">
+
+    <button onclick="saveToLocalStorage()">Lưu vào Local Storage</button>
+    <br>
+    <br>
+     
+    <table class="all-tours" id="locations">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image Url</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>People limit</th>
+            <th>Rating</th>
+            <th>People joined</th>
+            <th>Change</th>
+        </tr>
+    </thead>
+    <tbody id="tour-body">
+        
+    </tbody>
+</table>
+     </div>
+<div class="form-box" id="addphuongtien" >
+        <br>
+    <label for="image">Image path:</label>
+    <input type="text" id="imagexe" placeholder="anh/your_image.jpg">
+
+    <label for="title">Title:</label>
+    <input type="text" id="titlexe" placeholder="Tour title...">
+
+    <label for="price">Price:</label>
+    <input type="text" id="pricexe" placeholder="$65.00">
+
+    <label for="people">People limit:</label>
+    <input type="number" id="peoplexe" placeholder="15">
+
+    <label for="peoplejoin">People joined:</label>
+    <input type="number" id="peoplejoinxe" placeholder="230">
+
+    <button onclick="saveToLocalStorage()">Lưu vào Local Storage</button>
+    <br>
+    <br>
+     
+    <table class="all-tours" id="phuongtien">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image Url</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>People limit</th>
+            <th>Rating</th>
+            <th>People joined</th>
+            <th>Change</th>
+        </tr>
+    </thead>
+    <tbody id="xe-body">
+        
+    </tbody>
+</table>
+     </div>
+  </div>
+</div>
   </div>
   
   
@@ -160,3 +268,7 @@
 
   </div>
 </div>
+
+<script src="admin.js"></script>
+<script src="index.js"></script>
+  </body>

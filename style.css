@@ -361,7 +361,7 @@ button:hover{
     height: 250px;
     position: relative;
     z-index: 2;
-    margin-top: -30px;
+    margin-top: -20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -384,7 +384,7 @@ button:hover{
 .name-info-box-top-tours {
     color: #313041;
 
-    margin-top: -15px;
+    margin-top: -10px;
     font-weight: bold;
     font-size: 20px;
 }
@@ -465,7 +465,7 @@ li,ul{
 }
 .drop{
     display:none;
-    background-color: #f2f1f0;
+    background-color: #f9f8f6;
     flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -474,7 +474,7 @@ li,ul{
     border-radius: 5px;
     position:absolute;
     z-index: 2;
-    margin-left: 1250px;
+    margin-left: 1200px;
 
 
     
@@ -482,12 +482,12 @@ li,ul{
 .login-tab{
     width:100%;
     height:50%;
-    border-bottom:1px solid rgb(190, 190, 190)
-    ;
+    
     display:flex;
       justify-content: center;
   align-items: center;
   cursor:pointer;
+  gap:5px;
 }
 .signin-tab{
     display:flex;
@@ -496,6 +496,7 @@ li,ul{
       justify-content: center;
   align-items: center;
     cursor:pointer;
+    gap:5px;
 }
 #loginForm{
    position: fixed;
@@ -586,6 +587,8 @@ li,ul{
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   background-color: #fff;
+  margin-bottom: 20px;
+  height: 400px;
   transition: transform 0.3s ease;
 }
 
@@ -641,12 +644,14 @@ li,ul{
 .setting-box-left{
     display:flex;
     width: 300px;
-    height:97%;
+    height:1800px;
     flex-direction: column;
     margin-left:15px;
     margin-top: 20px;
     background-color: #ffffff;
     border-radius: 8px;
+  
+  
 }
 .setting-box-right{
     display:flex;
@@ -659,6 +664,91 @@ li,ul{
 .select-setting{
     width:100%;
 background-color: #fffefe;
-border:1px solid gray;
+border:1px solid rgb(237, 237, 237);
     flex:1;
+
 }
+.manage_setting {
+display:flex;
+flex-direction: column;
+gap:30px;
+
+
+}
+.manage_setting li::marker {
+  color:rgb(255, 125, 147);
+}
+.manage_setting li{
+    list-style: disc;
+  list-style-position: outside;
+margin-left: 50px;
+color:rgb(147, 147, 147)}
+.namepage{
+      font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  }
+  .select-setting{
+    padding: 20px 0 0 30px;
+    display:flex;
+    flex-direction: column;
+    gap:50px;
+    
+
+  };
+  .form-box {
+      width: 400px;
+      margin: 60px auto;
+
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-family: Arial;
+    }
+    .form-box label {
+    
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      margin-left:10px;
+    }
+    .form-box input {
+        margin-left: 10px;
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    .form-box button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background-color: #E8604C;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .all-tours {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.all-tours thead {
+  background-color: #E8604C;
+  color: white;
+}
+
+.all-tours th, 
+.all-tours td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+
+.form-box {
+
+  display:none;
+
+flex-direction:column ;
+} 
