@@ -580,6 +580,13 @@ li,ul{
   margin-top: 100px;
  
 }
+.boxtourscreate {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+ row-gap: 30px;
+  margin-top: 100px;
+ 
+}
 
 .box-top-tours {
   border: 1px solid #ddd;
@@ -635,7 +642,7 @@ li,ul{
     display:flex;
    
     width: 100%;
-   height: 1500px;
+   height: auto;
     background-color: #f1f1f1;
     border-radius: 5px;
     position:absolute;
@@ -644,7 +651,7 @@ li,ul{
 .setting-box-left{
     display:flex;
     width: 300px;
-    height:1800px;
+    height:1000px;
     flex-direction: column;
     margin-left:15px;
     margin-top: 20px;
@@ -662,7 +669,7 @@ li,ul{
     background-color: #f1f1f1;
 }
 .select-setting{
-    width:100%;
+    width: 270px;;
 background-color: #fffefe;
 border:1px solid rgb(237, 237, 237);
     flex:1;
@@ -752,3 +759,78 @@ color:rgb(147, 147, 147)}
 
 flex-direction:column ;
 } 
+.selectdestination{
+    display:flex;
+    flex-direction: column;
+    
+    width:100%
+}
+.more-info{
+    cursor:pointer;
+}
+/* Căn chỉnh tổng thể bảng */
+table.all-tours {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+}
+
+
+table.all-tours th {
+  padding: 8px;
+  text-align: left;
+
+  font-weight: 600;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+}
+
+table.all-tours td {
+  padding: 8px;
+  height:100px;
+  border: 1px solid #ccc;
+  overflow: hidden;         
+  text-overflow: ellipsis;  
+  white-space: nowrap;     
+}
+
+
+table.all-tours th:nth-child(1),
+table.all-tours td:nth-child(1)
+ {
+  width: 20px;
+  max-width: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+table.all-tours th:nth-child(4),
+table.all-tours td:nth-child(4)
+ {
+  width: 50px;
+  max-width: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.form-box input {
+  width: 99%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+.all-tours td:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* khoảng cách giữa các nút */
+  justify-content: center;
+  align-items: center;
+}
+
+.box-selected {
+  border: 3px solid #e27362;
+  border-radius: 15px;
+
+}

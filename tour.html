@@ -31,6 +31,8 @@
 
   </head>
   <body>
+<div class="tour-page-flag" style="display: none;"></div>
+
     <!--thanh cc-->
   <div id="overlay"></div>
 
@@ -90,7 +92,7 @@
         <li><a href="tour.html">Tour & Deal</a></li>
         <li><a href="guide.html">Travel Guide</a></li>
         
-        <li><a href="about.html">Create Tours</a></li>
+        <li><a href="create.html">Create Tours</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
         <li><a href="booked.html">About Us</a></li>
@@ -121,46 +123,54 @@
             <div class="title-tour"><span >Explore Best tours of Nghe An &amp; Ha Tinh</span></div>
   
   </div>
-  <div  class="search-section">
-    <form 
-      class="babe-search-form">
-      <img class="icon-search" src="anh/navigation (2).png">
-      <div class="search-field">
-        <label class="destination">
-         
-          <span class="search-up">Where are you going?</span>
-        </label>
-        <select id="destinations"></select>
-      </div>
-      <img class="icon-search" src="anh/travel (1).png">
-      <div class="search-field">
-        <label><i class="flaticon-recovery"></i>
-          <span class="search-up">Activity type</span>
-        </label>
-        <select id="activity"></select>
-      </div>
-      <img class="icon-search" src="anh/wall-clock.png">
-      <div class="search-field">
-        <label><i class="flaticon-time"></i>
-          <span class="search-up">How long</span>
-        </label>
-        <input id="day" type="number" color="orange">
-      </div>
-      <img class="icon-search" src="anh/family.png">
-      <div class="search-field">
-        <label><i class="flaticon-family"></i>
-          <span class="search-up">Guests</span>
-        </label>
-        <input id="people" type="number">
-      </div>
-      <img class="icon-search" src="anh/equalizer.png">
-      <button class="butten-background"  onclick="search()" style="height: 50px ; width:100px;">
-        Search
-      </button>
-    </form>
-    <div>
+<div class="search-section">
+  <form class="babe-search-form" onsubmit="search(); return false;">
+    <img class="icon-search" src="anh/navigation (2).png">
+    <div class="search-field">
+      <label>
+        <span class="search-up">Where are you going?</span>
+      </label>
+      <select class="destination">
+        <option value="">-- Select Destination --</option>
+        <option value="Lan Chau Island">Lan Chau Island</option>
+        <option value="Thanh Chuong Tea Hill">Thanh Chuong Tea Hill</option>
+        <option value="Dai Tue Temple">Dai Tue Temple</option>
+        <option value="PHU MAT National Park">PHU MAT National Park</option>
+        <option value="Pha Lai">Pha Lai</option>
+        <option value="Dragon Cave">Dragon Cave</option>
+      </select>
     </div>
-  </div>
+
+    <img class="icon-search" src="anh/travel (1).png">
+    <div class="search-field">
+      <label>
+        <span class="search-up">Price</span>
+      </label>
+      <input type="number" class="price">
+    </div>
+
+    <img class="icon-search" src="anh/wall-clock.png">
+    <div class="search-field">
+      <label>
+        <span class="search-up">When</span>
+      </label>
+      <input type="date" color="orange">
+    </div>
+
+    <img class="icon-search" src="anh/family.png">
+    <div class="search-field">
+      <label>
+        <span class="search-up">Guests</span>
+      </label>
+      <input type="number" class="people">
+    </div>
+
+    <img class="icon-search" src="anh/equalizer.png">
+    <button type="submit" class="butten-background" style="height: 50px; width: 100px;">
+      Search
+    </button>
+  </form>
+</div>
   </div>
   
   <div class="boxtours"></div>
@@ -224,4 +234,5 @@
 </div>
 <script src="index.js"></script>
  <script src="admin.js"></script>
+ <script src="search.js"></script>
   </body>

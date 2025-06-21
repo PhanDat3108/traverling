@@ -37,21 +37,51 @@ function logintable(){
 
   
   setInterval(changeImage, 3000);
-//tour
-
-  
 //search
-function search(){
-  destination=document.getElementsById("destinations").value
-  activity= document.getElementsById("activity").value
-  day=document.getElementById("day").value
-  people=document.getElementById("people").value
+function search() {
+  const destinationSearch = document.querySelector(".destination").value;
+  const priceSearch = parseFloat(document.querySelector(".price").value);
+  const peopleSearch = parseInt(document.querySelector(".people").value);
 
-  
+  const locations = JSON.parse(localStorage.getItem("tours")) || [];
+  const tourBoxes = document.querySelectorAll(".box-top-tours");
 
-  
-//đăng kí
+  locations.forEach((tour, index) => {
+    const matchDestination = !destinationSearch || tour.destination === destinationSearch;
+    const matchPrice = isNaN(priceSearch) || tour.price <= priceSearch;
+    const matchPeople = isNaN(peopleSearch) || tour.people >= peopleSearch;
+
+    const show = matchDestination && matchPrice && matchPeople;
+
+    if (tourBoxes[index]) {
+      tourBoxes[index].style.display = show ? "flex" : "none";
+    }
+  });
 }
+//search home
+function searchhome() {
+  const destination = document.querySelector(".destination").value;
+  const price = parseFloat(document.querySelector(".price").value);
+  const people = parseInt(document.querySelector(".people").value);
+
+  const filter = {
+    destination,
+    price,
+    people
+  };
+
+  
+  localStorage.setItem("onsearch", JSON.stringify(filter));
+
+ 
+  window.location.href = "tour.html";
+}
+
+
+
+
+//đăng kí
+
 function register() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
@@ -178,4 +208,16 @@ function logout(){
     window.location.href = "home.html"; 
   }, 100);
 }
+function selectdestination(){
+  const destinations = JSON.parse(localStorage.getItem("tours")) || [];
+  const select = document.querySelector(".destination");
 
+  destinations.forEach(tour => {
+    const dest = tour.destination;
+    const option = document.createElement("option");
+    option.value = dest;
+    option.textContent = dest;
+    select.appendChild(option);
+  });
+}
+selectdestination()

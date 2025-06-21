@@ -7,7 +7,6 @@
 
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet"
-    
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link
@@ -28,11 +27,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
   </head>
   <body>
+<div class="tour-page-flag" style="display: none;"></div>
+
     <!--thanh cc-->
+  <div id="overlay"></div>
+
+<div id="loginForm">
+ 
+  <h2>Đăng nhập</h2>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Username</label>
+  <input id="username"class="sign username" type="text" placeholder="Tên đăng nhập" />
+  </div>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Password</label>
+  <input id="password" class="sign password" type="password" placeholder="Mật khẩu" />
+  </div>
+  <button class="butten-background" onclick="login()" style="width:80%;height: 45px;display:flex;">Đăng nhập</button>
+  <a href="signin.html" style="color:black">Bạn chưa có tài khoản ?</a>
+  <p id="message" style="font-weight: bold; color: red;"></p>
   
+</div>
     <div class="header">
       <div class="header-contact">
         <div class="header-left">
@@ -77,156 +96,47 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
         <li><a href="booked.html">About Us</a></li>
-        <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user"></i></div>
-        <li class="search-icon" style="margin-left:50px"><a href="search.html"><i class="fas fa-search"></i> </a></li>
+        <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user" style="color:#7a7676"></i></div>
+        <li class="search-icon" style="margin-left:50px"><a href="search.html"><i class="fas fa-search" style="color:#7a7676"></i> </a></li>
 
-        <li class="sign-icon"><button onclick="toggleDropdown()"   ><i  class="fas fa-sign-in-alt"></i> </button></li>
+        <li class="sign-icon"><button onclick="toggleDropdown()"   ><i  class="fa-solid fa-user" style="color:#7a7676"></i> </button></li>
            
       </ul>
     </div>
   </div>
-  <!--Anh poster-->
-  <div class="poster-container">
-     <div class="drop-logout">
-              <div class="login-tab" onclick="logout()">
-                 Log Out
+  <!--poster-->
+  <div class="poster-container" style="height: 400px;">
+     <div class="drop">
+              <div class="login-tab" onclick="logintable()">
+                 Login
               </div>
                <div class="signin-tab">
-               <a style="color:black" href="signin.html"> Booked</a>
+               <a style="color:black" href="signin.html"> Sign in</a>
               </div>
             </div>
-  </div>
-  <div class="setting">
-<div class="setting-box-left">
-    <h3 class="namepage" style="color:#d93769">NgheAn<span style="color:#9c1444">Travel</span></h3>
-    <div class="select-setting">
-        <label> <i class="fa-solid fa-chart-bar"></i> Thông số</label>
-     <ul class="manage_setting">
-        <li>Phân tích</li>
-        <li>Báo cáo</li>
-         <li>Danh sách block</li>
-     </ul>
-     <label> <i class="fa-solid fa-gear"></i> Chỉnh sửa</label>
-      <ul class="manage_setting">
-       <li style="cursor:pointer" onclick="displayadd('addtours')">Tours</li> 
-        
-        <li style="cursor:pointer" onclick="displayadd('addphuongtien')">Phương tiện</li>
-        <li style="cursor:pointer" onclick="displayadd('locationadd')">Địa điểm</li>
-      </ul>
-      <label> <i class="fa-solid fa-handshake"></i> Kiểm soát</label>
-       <ul class="manage_setting">
-        <li>Nhân viên</li>
-        <li>Khách hàng</li>
-        <li>Voucher</li>
-        <li>Giao dịch</li>
-       </ul>
-       
+            <img class="poster" id="posterImage" src="https://gaviaspreview.com/wp/tevily/wp-content/uploads/2020/12/slider-1.jpg">
+            <div class="box-title">
 
-     </ul>
-    </div>
-    
-</div>
-<div class="setting-box-right">
-     <div class="form-box" id="addtours" >
-        <br>
-    <label for="image">Image path:</label>
-    <input type="text" id="image" placeholder="anh/your_image.jpg">
-
-    <label for="title">Title:</label>
-    <input type="text" id="title" placeholder="Tour title...">
-    <label for="lat">Latitude (vĩ độ):</label>
-  <input type="text" id="lat" placeholder="VD: 18.820030">
-
-  <!-- ✅ Thêm Longitude -->
-  <label for="lng">Longitude (kinh độ):</label>
-  <input type="text" id="lng" placeholder="VD: 105.721232">
-
-    <label for="price">Price:</label>
-    <input type="text" id="price" placeholder="$65.00">
-
-    <label for="people">People limit:</label>
-    <input type="number" id="people" placeholder="15">
-
-    <label for="rating">Rating image path:</label>
-    <input type="text" id="rating" placeholder="anh/rating (1).png">
-
-    <label for="peoplejoin">People joined:</label>
-    <input type="number" id="peoplejoin" placeholder="230">
-    <label for="destination-add">Destination:</label>
-    <input type="text" id="destination-add" placeholder="Name place">
-
-
-
-    <button onclick="saveToLocalStorage()">Lưu vào Local Storage</button>
-    <br>
-    <br>
-     
-    <table class="all-tours" id="locations">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Image Url</th>
-            <th>Title</th>
-            
-            <th>Price</th>
-            <th>People limit</th>
-            <th>Rating</th>
-            <th>People joined</th>
-            <th>Destination</th>
-            <th>Lat</th>
-      <th>Lng</th>
-            <th>Change</th>
-        </tr>
-    </thead>
-    <tbody id="tour-body">
-        
-    </tbody>
-</table>
-     </div>
-<div class="form-box" id="addphuongtien" >
-        <br>
-    <label for="image">Image path:</label>
-    <input type="text" id="imagexe" placeholder="anh/your_image.jpg">
-
-    <label for="title">Title:</label>
-    <input type="text" id="titlexe" placeholder="Tour title...">
-
-    <label for="price">Price:</label>
-    <input type="text" id="pricexe" placeholder="$65.00">
-
-    <label for="people">People limit:</label>
-    <input type="number" id="peoplexe" placeholder="15">
-
-    <label for="peoplejoin">People joined:</label>
-    <input type="number" id="peoplejoinxe" placeholder="Name">
-
-    <button onclick="saveToLocalStoragexe()">Lưu vào Local Storage</button>
-    <br>
-    <br>
-     
-    <table class="all-tours" id="phuongtien">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Image Url</th>
-            <th>Title</th>
-         
-            <th>Price</th>
-            <th>People limit</th>
-            <th>People joined</th>
-            <th>Change</th>
-        </tr>
-    </thead>
-    <tbody id="xe-body">
-        
-    </tbody>
-</table>
-     </div>
-  </div>
-</div>
-  </div>
+            <h2 class="title-tour">
+               <span>Create Your Own Tour<span style="letter-spacing: -0.2px; white-space: normal;">&nbsp;</span><br></span>
+            </h2>
+            <div class="title-tour"><span >Explore Best tours of Nghe An &amp; Ha Tinh</span></div>
   
-  
+  </div>
+  </div>
+  <br>
+  <br>
+<div class="selectdestination">
+  <p class="font-reey" style="font-size :20px;margin-left:45%">First Step</p>
+  <h3 style="font-size :60px; color:#313041;margin-left:20%"> Beautiful & Peaceful Destination
+      </h3>
+      <br>
+      <button onclick="Route()" class="butten-background" style="width: 200px;margin-left: 600px;">Xem lịch trình</button>
+      
+
+
+<div class="boxtourscreate"></div>
+</div>
   <div class="foot">
     <div class="foot1">
       <a href="#top"><img src="anh/output-onlinepngtools.png" width="150px"></a>
@@ -240,7 +150,6 @@
         <li class="foot-info"><img src="anh/location.png" width="15px"><a> Xóm 3, Nam Nghĩa , Nam Đàn  Nghệ An</a></li>
         <br>
         <li class="foot-info"><img src="anh/phone-call.png" width="15px"> <a href>0977574798</a></li>
-        
         <br>
         <li class="foot-info"><img src="anh/mail.png" width="15px"><a href="mailto:phandat.ptit@gmail.com"> phandat.ptit@gmail.com</a></li>
 
@@ -283,7 +192,7 @@
 
   </div>
 </div>
-
-<script src="admin.js"></script>
 <script src="index.js"></script>
+ <script src="admin.js"></script>
+ <script src="create.js"></script>
   </body>
