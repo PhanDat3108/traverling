@@ -56,32 +56,34 @@ window.addEventListener("load", () => {
 
   const toursFromStorage = JSON.parse(localStorage.getItem("tours")) || [];
 
-  toursFromStorage.forEach(tour => {
-    container.innerHTML += `
-      <div class="box-top-tours">
-        <div class="img-box-top-tours">
-          <img src="${tour.image}">
-        </div>
-        <div class="info-box-top-tours">
-          <div class="info-box">
-            <img class="star" src="${tour.rating}">
-            <div class="name-info-box-top-tours">${tour.title}</div>
-            <br>
-            <div class="price">$${tour.price}</div>
-            <br>
-            <div class="more-info">
-              <div class="info-left">
-                <img src="anh/people.png" width="20px" style="padding: 0;"> ${tour.people}
-              </div>
-              <div class="info-right">
-                Explore Now <img style="margin-left: 5px;" width="15px" src="anh/right-arrow.png">
-              </div>
+toursFromStorage.forEach((tour, index) => {
+  container.innerHTML += `
+    <div class="box-top-tours">
+      <div class="img-box-top-tours">
+        <img src="${tour.image}">
+      </div>
+      <div class="info-box-top-tours">
+        <div class="info-box">
+          <img class="star" src="${tour.rating}">
+          <div class="name-info-box-top-tours">${tour.title}</div>
+          <br>
+          <div class="price">$${tour.price}</div>
+          <br>
+         
+          <div class="more-info" onclick="showTourPopup(${index})">
+
+            <div class="info-left">
+              <img src="anh/people.png" width="20px" style="padding: 0;"> ${tour.people}
+            </div>
+            <div class="info-right">
+              Explore Now <img style="margin-left: 5px;" width="15px" src="anh/right-arrow.png">
             </div>
           </div>
         </div>
       </div>
-    `;
-  });
+    </div>
+  `;
+});
 
   
 });

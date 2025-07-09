@@ -1,0 +1,12 @@
+.boxvehicle {
+    margin-top:50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  gap: 20px; 
+  padding: 20px;
+}
+.info-box{
+    margin-top:30px;
+
+} 

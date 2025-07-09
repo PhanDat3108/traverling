@@ -58,7 +58,7 @@ function search() {
     }
   });
 }
-//search home
+//search trong trang chu
 function searchhome() {
   const destination = document.querySelector(".destination").value;
   const price = parseFloat(document.querySelector(".price").value);

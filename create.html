@@ -26,7 +26,7 @@
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<link rel="stylesheet" href="create.css">
 
 
   </head>
@@ -90,10 +90,9 @@
 
         <li><a href="home.html">Home</a></li>
         <li><a href="tour.html">Tour & Deal</a></li>
-        <li><a href="guide.html">Travel Guide</a></li>
         
-        <li><a href="about.html">Create Tours</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="create.html">Create Tours</a></li>
+        <li><a href="vehicle.html">Vehicle</a></li>
         <li><a href="booked.html">Booked</a></li>
         <li><a href="booked.html">About Us</a></li>
         <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user" style="color:#7a7676"></i></div>
@@ -131,11 +130,21 @@
   <h3 style="font-size :60px; color:#313041;margin-left:20%"> Beautiful & Peaceful Destination
       </h3>
       <br>
-      <button onclick="Route()" class="butten-background" style="width: 200px;margin-left: 600px;">Xem lịch trình</button>
+      <button onclick="Route();step2()"class="butten-background buttonstep1" style="width: 200px;margin-left: 600px;">Tiếp theo</button>
+      <button onclick="step3()"class="butten-background buttonstep2" style="width: 200px;margin-left: 600px; display: none">Tiếp theo</button>
+
+
       
 
 
 <div class="boxtourscreate"></div>
+<div class="thuexecreate" style="display:none">
+
+
+</div>
+<div class="formdien" style="display:none"></div>
+<div class="summary-box" style="display:none; padding: 30px; background-color: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin: 40px auto; border-radius: 12px; max-width: 800px; font-family: 'Poppins', sans-serif;"></div>
+
 </div>
   <div class="foot">
     <div class="foot1">
