@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Row Display</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="admin.js"></script>
+
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="index.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
       rel="stylesheet">
@@ -25,13 +24,32 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 
   </head>
   <body>
     <!--thanh cc-->
+  <div id="overlay"></div>
+
+<div id="loginForm">
+ 
+  <h2>Đăng nhập</h2>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Username</label>
+  <input id="username"class="sign username" type="text" placeholder="Tên đăng nhập" />
+  </div>
+  <div class="sign-minibox">
+    <label for="sign" style="font-weight: bold;">Password</label>
+  <input id="password" class="sign password" type="password" placeholder="Mật khẩu" />
+  </div>
+  <button class="butten-background" onclick="login()" style="width:80%;height: 45px;display:flex;">Đăng nhập</button>
+  <a href="signin.html" style="color:black">Bạn chưa có tài khoản ?</a>
+  <p id="message" style="font-weight: bold; color: red;"></p>
   
-
-
+</div>
     <div class="header">
       <div class="header-contact">
         <div class="header-left">
@@ -84,32 +102,132 @@
       </ul>
     </div>
   </div>
-  <div class="box-signin">
-  <div class="box-inside-signin">
-    <img width="100px" src="anh/ChatGPT_Image_14_07_05_9_thg_5__2025-removebg-preview.png">
-   <h1>Sign In</h1>
-  <div class="sign-minibox">
-  <label for="username" style="font-weight: bold;">Username</label>
-  <input id="username" name="username" class="sign username" type="text" placeholder="Tên đăng nhập" />
-</div>
-<div class="sign-minibox">
-  <label for="password" style="font-weight: bold;">Password</label>
-  <input id="password" name="password" class="sign password" type="password" placeholder="Mật khẩu" />
-</div>
-<div class="sign-minibox">
-  <label for="confirmPassword" style="font-weight: bold;">Confirm password</label>
-  <input id="confirmPassword" name="confirmPassword" class="sign password" type="password" placeholder="Nhập lại mật khẩu" />
-  <p id="message" style="font-weight: bold; color: red;"></p>
-
-</div>
-
-<button class="button-background" onclick="register()"style="width:80%;height:45px;">Đăng ký</button>
-
-     <a href="home.html" style="color: black;"
-     > Đã có mật khẩu ?</a>
-
+  <!--Anh poster-->
+  <div class="poster-container">
+     <div class="drop-logout">
+              <div class="login-tab" onclick="logout()">
+                
+                 Log Out
+              </div>
+               <div class="signin-tab">
+               <a style="color:black" href="signin.html"> Booked</a>
+              </div>
+            </div>
+     <div class="drop">
+              <div class="login-tab" onclick="logintable()">
+                <i class="fa-solid fa-right-to-bracket" style="color:#7a7676"></i>
+                 Login
+              </div>
+               <div class="signin-tab">
+               <a style="color:black" href="signin.html"> 
+                <i class="fa-solid fa-user-plus" style="color:#7a7676"></i>
+                </i>
+                Sign in</a>
+              </div>
+            </div>
+    <img class="poster" src="anh/004b4db9-a695-466d-9696-61cb5882ea64.png">
   </div>
-  </div>
+ <style>
+    
+
+    form {
+      background: #fff;
+      padding: 20px;
+      width: 800px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #ff9422;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f87d26;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="form-khachhang">
+    <h2>Nhập Thông Tin Khách Hàng</h2>
+    <label for="hoten">Họ tên</label>
+    <input type="text" id="hoten" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+
+    <label for="diachi">Địa chỉ</label>
+    <input type="text" id="diachi" required>
+
+    <label for="ghichu">Ghi chú</label>
+    <textarea id="ghichu" rows="3"></textarea>
+
+    <button type="submit">Gửi</button>
+  </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const username = localStorage.getItem("Userinuse");
+      if (!username) {
+        alert("⚠️ Bạn chưa đăng nhập (Userinuse chưa có trong localStorage).");
+        return;
+      }
+
+      const form = document.getElementById("form-khachhang");
+
+      // Load thông tin đã lưu sẵn nếu có
+      const khachhangData = JSON.parse(localStorage.getItem("khachhang")) || {};
+      if (khachhangData[username]) {
+        const userData = khachhangData[username];
+        document.getElementById("hoten").value = userData.hoten || "";
+        document.getElementById("email").value = userData.email || "";
+        document.getElementById("diachi").value = userData.diachi || "";
+        document.getElementById("ghichu").value = userData.ghichu || "";
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const thongtin = {
+          username: username,
+          hoten: document.getElementById("hoten").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          diachi: document.getElementById("diachi").value.trim(),
+          ghichu: document.getElementById("ghichu").value.trim()
+        };
+
+        // Cập nhật vào localStorage
+        khachhangData[username] = thongtin;
+        localStorage.setItem("khachhang", JSON.stringify(khachhangData));
+
+        alert("✅ Thông tin khách hàng đã được lưu!");
+      });
+    });
+  </script>
+
+
   <div class="foot">
     <div class="foot1">
       <a href="#top"><img src="anh/output-onlinepngtools.png" width="150px"></a>
@@ -165,3 +283,6 @@
 
   </div>
 </div>
+<script src="admin.js"></script>
+<script src="index.js"></script>
+  </body>

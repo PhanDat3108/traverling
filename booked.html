@@ -90,9 +90,10 @@
 
         <li><a href="home.html">Home</a></li>
         <li><a href="tour.html">Tour & Deal</a></li>
+        <li><a href="vehicle.html">Vehicle</a></li>
         
         <li><a href="create.html">Create Tours</a></li>
-        <li><a href="vehicle.html">Vehicle</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
         <li><a href="booked.html">About Us</a></li>
         <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user" style="color:#7a7676"></i></div>
@@ -127,22 +128,18 @@
   <br>
 
 </div>
-<h1>🧾 Danh sách đã đặt</h1>
+<div class="section" id="tour-bookings">
+  <h2>🛒 TOUR BOOKED (From Giỏ Hàng)</h2>
+  <div id="tour-list"></div>
+</div>
+<div class="section" id="custom-combos">
+  <h2>🧭 TOUR CREATED</h2>
+  <div id="combo-list"></div>
+</div>
 
-  <div class="section" id="tour-bookings">
-    <h2>📍 TOUR BOOKED</h2>
-    <div id="tour-list"></div>
-  </div>
-
-  <div class="section" id="vehicle-bookings">
-    <h2>🚗 VEHICLE RENTED</h2>
-    <div id="vehicle-list"></div>
-  </div>
-
-  <div class="section" id="custom-combos">
-    <h2>🧭 TOUR CREATED</h2>
-    <div id="combo-list"></div>
-  </div>
+<div class="section" id="vehicle-bookings">
+  <h2>🚗 VEHICLE RENTED</h2>
+  <div id="vehicle-list"></div>
 </div>
   <div class="foot">
     <div class="foot1">
@@ -202,4 +199,87 @@
 <script src="index.js"></script>
  <script src="admin.js"></script>
  <script src="create.js"></script>
+ <script src="booked.js"> </script>
   </body>
+  <style>
+   .section {
+  display: flex;
+  flex-wrap: wrap;      /* Cho phép xuống hàng khi không đủ chỗ */
+  gap: 20px;            /* Khoảng cách giữa các tour */
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 1100px;
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  flex-direction: row !important;  /* Đảm bảo không bị override */
+}
+
+
+.section h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.box-top-tours {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.info-box-top-tours {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name-info-box-top-tours {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.price {
+  color: #ff7d2c;
+  font-size: 16px;
+}
+
+.more-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #666;
+}
+
+.more-info img {
+  vertical-align: middle;
+}
+#combo-list,
+#tour-list,
+#vehicle-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+</style>

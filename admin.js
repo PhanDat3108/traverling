@@ -307,3 +307,21 @@ function deleteXe(i) {
   localStorage.setItem("phuongtien", JSON.stringify(phuongtiens));
   upLoadBoxxe();
 }
+function capnhatGioHang() {
+  const username = localStorage.getItem("Userinuse"); // Lấy username
+
+  const thongTinTour = JSON.parse(localStorage.getItem("toursCreated"));
+  const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  const xeThue = JSON.parse(localStorage.getItem("phuongtiendangthuee")) || [];
+
+  const giohang = {
+    username: username,
+    tourTuyChon: thongTinTour || null,
+    tourDaDat: bookings,
+    xeDaThue: xeThue
+  };
+
+  localStorage.setItem("giohang", JSON.stringify(giohang));
+ 
+}
+ capnhatGioHang()
