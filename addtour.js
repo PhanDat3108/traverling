@@ -71,7 +71,7 @@ window.showTourPopup = function (index) {
 <div onclick="bookTour(${index}); luuBooking(tours[${index}])" class="butten-background">Đặt tour</div>
   `;
   popup.style.display = "block";
-
+// cập nhật giá 
   const updatePrice = () => {
     const numPeople = parseInt(document.getElementById("numPeople").value) || 0;
     const basePrice = parseFloat(tour.price);

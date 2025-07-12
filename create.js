@@ -190,7 +190,7 @@ function Route() {
   console.log("Lộ trình tối ưu:", optimized);
 }
 
-// ======= Clear localStorage khi rời trang =======
+//  Clear localStorage khi rời trang 
 window.addEventListener("beforeunload", () => {
   localStorage.removeItem("userSelection");
   localStorage.removeItem("optimizedRoute");
@@ -208,7 +208,7 @@ function rentVehicle(i) {
     rented.push(vehicle);
     localStorage.setItem("xeDaThue", JSON.stringify(rented));
 
-    // ✅ Đổi viền: Thêm class để đổi màu viền
+    // Đổi viền: Thêm class để đổi màu viền
     boxes[i].classList.add("box-selected");
 
     
@@ -226,7 +226,7 @@ function rentVehicle(i) {
 }
 
 window.addEventListener("load", () => {
-  localStorage.removeItem("xeDaThue"); // ✅ Xoá xe đã chọn mỗi khi tải lại trang
+  localStorage.removeItem("xeDaThue"); // Xoá xe đã chọn mỗi khi tải lại trang
 
   renderTours();
   renderVehicles();
@@ -344,7 +344,7 @@ function confirmTour() {
     createdAt: new Date().toISOString()
   };
 
-  // ✅ Gọi hàm lưu theo từng user
+  //  Gọi hàm lưu theo từng user
   luuTourDaTao(tour);
 
   const saved = JSON.parse(localStorage.getItem("toursCreated")) || [];
