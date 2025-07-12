@@ -293,8 +293,8 @@ function editXe(i) {
   document.getElementById("imagexe").value = xe.image;
   document.getElementById("titlexe").value = xe.title;
   document.getElementById("pricexe").value = xe.price;
-  document.getElementById("peoplexe").value = xe.peoplexe;
-  document.getElementById("peoplejoinxe").value = xe.peoplejoinxe;
+  document.getElementById("peoplexe").value = xe.people;
+  document.getElementById("peoplejoinxe").value = xe.peoplejoin;
 
   editingIndexxe = i; 
 }
@@ -308,20 +308,126 @@ function deleteXe(i) {
   upLoadBoxxe();
 }
 function capnhatGioHang() {
-  const username = localStorage.getItem("Userinuse"); // Lấy username
+  const username = localStorage.getItem("Userinuse");
 
-  const thongTinTour = JSON.parse(localStorage.getItem("toursCreated"));
-  const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-  const xeThue = JSON.parse(localStorage.getItem("phuongtiendangthuee")) || [];
+  const thongTinTour = JSON.parse(localStorage.getItem(`toursCreated_${username}`));
+  const bookings = JSON.parse(localStorage.getItem(`bookings_${username}`)) || [];
+  const xeThue = JSON.parse(localStorage.getItem(`phuongtiendangthuee_${username}`)) || [];
 
   const giohang = {
-    username: username,
-    tourTuyChon: thongTinTour || null,
+    username,
+    tourTuyChon: thongTinTour?.route || [],
     tourDaDat: bookings,
     xeDaThue: xeThue
   };
 
   localStorage.setItem("giohang", JSON.stringify(giohang));
- 
 }
- capnhatGioHang()
+
+capnhatGioHang()
+function luuTourDaTao(tour) {
+  const username = localStorage.getItem("Userinuse");
+  const current = JSON.parse(localStorage.getItem(`toursCreated_${username}`)) || { route: [] };
+  current.route.push(tour);
+  localStorage.setItem(`toursCreated_${username}`, JSON.stringify(current));
+}
+function luuBooking(booking) {
+  const username = localStorage.getItem("Userinuse");
+  const current = JSON.parse(localStorage.getItem(`bookings_${username}`)) || [];
+  current.push(booking);
+  localStorage.setItem(`bookings_${username}`, JSON.stringify(current));
+}
+function luuXeThue(index) {
+  const username = localStorage.getItem("Userinuse");
+  const allVehicles = JSON.parse(localStorage.getItem("phuongtien")) || [];
+  const xe = allVehicles[index];
+
+  const current = JSON.parse(localStorage.getItem(`phuongtiendangthuee_${username}`)) || [];
+  current.push(xe);
+  localStorage.setItem(`phuongtiendangthuee_${username}`, JSON.stringify(current));
+}
+
+
+function loadGioHangSauKhiDangNhap() {
+  capnhatGioHang();
+  // sau đó render giỏ hàng ra giao diện
+}
+function hienThiNguoiDung() {
+  const dsNguoiDung = JSON.parse(localStorage.getItem("users")) || [];
+  const tbody = document.getElementById("bang-nguoi-dung");
+  tbody.innerHTML = "";
+
+  dsNguoiDung.forEach((nguoiDung, index) => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${nguoiDung.username}</td>
+        <td>${nguoiDung.password}</td>
+        <td>${nguoiDung.role}</td>
+        <td><button onclick="xoaNguoiDung(${index})" style="color:white ; background-color: #e27362; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Xoá</button></td>
+      </tr>
+    `;
+  });
+}
+hienThiNguoiDung()
+function xoaNguoiDung(index) {
+  const dsNguoiDung = JSON.parse(localStorage.getItem("users")) || [];
+  if (confirm("Bạn có chắc chắn muốn xoá người dùng này?")) {
+    dsNguoiDung.splice(index, 1);
+    localStorage.setItem("users", JSON.stringify(dsNguoiDung));
+    hienThiNguoiDung(); // cập nhật lại bảng
+  }
+}
+
+function hienThiGioHang() {
+  const giohang = JSON.parse(localStorage.getItem("giohang"));
+  if (!giohang) return;
+  const username = giohang.username || "Không xác định";
+
+  // Tour Tự Chọn
+  const tbodyTuyChon = document.querySelector("#table-tuychon tbody");
+  tbodyTuyChon.innerHTML = "";
+  giohang.tourTuyChon.forEach((tour, index) => {
+    tbodyTuyChon.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${username}</td>
+        <td>${tour.title || "Không rõ"}</td>
+        <td>$${tour.price || "?"}</td>
+        <td>${tour.destination || "?"}</td>
+      </tr>
+    `;
+  });
+
+  // Tour Đã Đặt
+  const tbodyDaDat = document.querySelector("#table-dadat tbody");
+  tbodyDaDat.innerHTML = "";
+  giohang.tourDaDat.forEach((booking, index) => {
+    tbodyDaDat.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${username}</td>
+        <td>${booking.title || "?"}</td>
+        <td>$${booking.price || "?"}</td>
+        <td>${booking.people || "?"}</td>
+      </tr>
+    `;
+  });
+
+  // Xe Đã Thuê
+  const tbodyXe = document.querySelector("#table-xe tbody");
+  tbodyXe.innerHTML = "";
+  giohang.xeDaThue.forEach((xe, index) => {
+    tbodyXe.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${username}</td>
+        <td>${xe.title || "?"}</td>
+        <td>$${xe.price || "?"}</td>
+        <td>${xe.people || "?"}</td>
+      </tr>
+    `;
+  });
+}
+
+window.addEventListener("load", hienThiGioHang);

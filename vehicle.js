@@ -1,25 +1,29 @@
+let danhsachxe = JSON.parse(localStorage.getItem("phuongtien")) || [];
+
 window.addEventListener("load", () => {
   const container = document.querySelector('.boxvehicle');
-  const toursFromStorage = JSON.parse(localStorage.getItem("phuongtien")) || [];
+  const dulieuxe = JSON.parse(localStorage.getItem("phuongtien")) || [];
 
-  toursFromStorage.forEach((phuongtiens, index) => {
+  container.innerHTML = ""; // Xóa cũ
+
+  dulieuxe.forEach((xe, vitri) => {
     container.innerHTML += `
       <div class="box-top-tours">
         <div class="img-box-top-tours">
-          <img src="${phuongtiens.image}">
+          <img src="${xe.image}">
         </div>
         <div class="info-box-top-tours">
           <div class="info-box">
-            <div class="name-info-box-top-tours">${phuongtiens.title}</div>
+            <div class="name-info-box-top-tours">${xe.title}</div>
             <br>
-            <div class="price">$${phuongtiens.price}</div>
+            <div class="price">$${xe.price}</div>
             <br>
-            <div class="more-info" style="margin-top:50px" onclick="thuexe(${index})">
+            <div class="more-info" style="margin-top:50px" onclick="moPopupThueXe(${vitri})">
               <div class="info-left">
-                <img src="anh/people.png" width="20px" style="padding: 0;"> ${phuongtiens.people}
+                <img src="anh/people.png" width="20px" style="padding: 0;"> ${xe.people}
               </div>
               <div class="info-right">
-                Rent Now <img style="margin-left: 5px;" width="15px" src="anh/right-arrow.png">
+                Thuê ngay <img style="margin-left: 5px;" width="15px" src="anh/right-arrow.png">
               </div>
             </div>
           </div>
@@ -29,77 +33,77 @@ window.addEventListener("load", () => {
   });
 });
 
-// Nếu dữ liệu chưa có sẵn
-if (!localStorage.getItem("phuongtien")) {
-  localStorage.setItem("phuongtien", JSON.stringify(phuongtien));
-}
+// Hàm mở popup thuê xe
+function moPopupThueXe(vitri) {
+  const danhsachxe = JSON.parse(localStorage.getItem("phuongtien")) || [];
+  const xe = danhsachxe[vitri];
 
-// Hàm thêm xe vào danh sách thuê
-function thuexe(index) {
-  const allvehicles = JSON.parse(localStorage.getItem("phuongtien")) || [];
-  const vehicle = allvehicles[index];
-
-  popupXe.innerHTML = `
-    <button onclick="document.getElementById('popup-xe').style.display='none'">X Đóng</button>
-    <h2>${vehicle.title}</h2>
-    <img src="${vehicle.image}" style="width:100%; border-radius:8px; margin-bottom:10px;">
-    <p><strong>Giá mỗi ngày:</strong> $${vehicle.price}</p>
-    <label>Ngày thuê: <input type="date" id="rentStart" /></label><br/><br/>
-    <label>Ngày trả: <input type="date" id="rentEnd" /></label><br/><br/>
-    <label>Số lượng xe: <input type="number" id="rentQuantity" min="1" value="1" /></label><br/><br/>
-    <p id="xeTotal">Tổng tiền: $0</p>
+  hopThueXe.innerHTML = `
+    <button onclick="document.getElementById('popup-xe').style.display='none'">Đóng</button>
+    <h2>${xe.title}</h2>
+    <img src="${xe.image}" style="width:100%; border-radius:8px; margin-bottom:10px;">
+    <p><strong>Giá mỗi ngày:</strong> $${xe.price}</p>
+    <label>Ngày thuê: <input type="date" id="ngayThue" /></label><br/><br/>
+    <label>Ngày trả: <input type="date" id="ngayTra" /></label><br/><br/>
+    <label>Số lượng xe: <input type="number" id="soLuong" min="1" value="1" /></label><br/><br/>
+    <p id="tongTienXe">Tổng tiền: $0</p>
     <br>
-    <div onclick="xacNhanThueXe(${index})" class="butten-background" width="50px">Xác nhận thuê</div>
+    <div onclick='xacNhanThueXe(${vitri})' class="butten-background">Thuê</div>
   `;
 
-  popupXe.style.display = "block";
+  hopThueXe.style.display = "block";
 
-  const updateTotal = () => {
-    const quantity = parseInt(document.getElementById("rentQuantity").value) || 1;
-    const start = new Date(document.getElementById("rentStart").value);
-    const end = new Date(document.getElementById("rentEnd").value);
-    const days = Math.max(1, Math.ceil((end - start) / (1000 * 60 * 60 * 24)));
-    const total = quantity * days * parseFloat(vehicle.price);
-    document.getElementById("xeTotal").textContent = `Tổng tiền: $${total}`;
+  const capNhatTien = () => {
+    const soLuong = parseInt(document.getElementById("soLuong").value) || 1;
+    const ngaybd = new Date(document.getElementById("ngayThue").value);
+    const ngaykt = new Date(document.getElementById("ngayTra").value);
+    const songay = Math.max(1, Math.ceil((ngaykt - ngaybd) / (1000 * 60 * 60 * 24)));
+    const tong = soLuong * songay * parseFloat(xe.price);
+    document.getElementById("tongTienXe").textContent = `Tổng tiền: $${tong}`;
   };
 
-  document.getElementById("rentQuantity").addEventListener("input", updateTotal);
-  document.getElementById("rentStart").addEventListener("change", updateTotal);
-  document.getElementById("rentEnd").addEventListener("change", updateTotal);
+  document.getElementById("soLuong").addEventListener("input", capNhatTien);
+  document.getElementById("ngayThue").addEventListener("change", capNhatTien);
+  document.getElementById("ngayTra").addEventListener("change", capNhatTien);
 }
 
-function xacNhanThueXe(index) {
-  const vehicles = JSON.parse(localStorage.getItem("phuongtien"));
-  const vehicle = vehicles[index];
+// Hàm xác nhận thuê
+function xacNhanThueXe(vitri) {
+  const dsxe = JSON.parse(localStorage.getItem("phuongtien"));
+  const xe = dsxe[vitri];
 
-  const quantity = parseInt(document.getElementById("rentQuantity").value);
-  const start = document.getElementById("rentStart").value;
-  const end = document.getElementById("rentEnd").value;
+  const soLuong = parseInt(document.getElementById("soLuong").value);
+  const batdau = document.getElementById("ngayThue").value;
+  const ketthuc = document.getElementById("ngayTra").value;
 
-  const days = Math.max(1, Math.ceil((new Date(end) - new Date(start)) / (1000 * 60 * 60 * 24)));
-  const total = quantity * days * parseFloat(vehicle.price);
+  const songay = Math.max(1, Math.ceil((new Date(ketthuc) - new Date(batdau)) / (1000 * 60 * 60 * 24)));
+  const tong = soLuong * songay * parseFloat(xe.price);
 
-  const rentData = {
-    title: vehicle.title,
-    image: vehicle.image,
-    quantity,
-    start,
-    end,
-    days,
-    total
+  const duLieuThue = {
+    title: xe.title,
+    image: xe.image,
+    quantity: soLuong,
+    start: batdau,
+    end: ketthuc,
+    days: songay,
+    total: tong
   };
 
-  const rented = JSON.parse(localStorage.getItem("phuongtiendangthuee")) || [];
-  rented.push(rentData);
-  localStorage.setItem("phuongtiendangthuee", JSON.stringify(rented));
+  const username = localStorage.getItem("Userinuse");
+  const danhSachDaThue = JSON.parse(localStorage.getItem(`phuongtiendangthuee_${username}`)) || [];
+  danhSachDaThue.push(duLieuThue);
+  localStorage.setItem(`phuongtiendangthuee_${username}`, JSON.stringify(danhSachDaThue));
 
   document.getElementById("popup-xe").style.display = "none";
   alert("Thuê xe thành công!");
+
+  capnhatGioHang();
 }
 
-const popupXe = document.createElement("div");
-popupXe.id = "popup-xe";
-popupXe.style = `
+// Tạo popup
+const hopThueXe = document.createElement("div");
+hopThueXe.id = "popup-xe";
+hopThueXe.style = `
   position: fixed;
   top: 50%;
   left: 50%;
@@ -113,4 +117,29 @@ popupXe.style = `
   width: 90%;
   display: none;
 `;
-document.body.appendChild(popupXe);
+document.body.appendChild(hopThueXe);
+
+// Cập nhật giỏ hàng tổng quát
+function capnhatGioHang() {
+  const username = localStorage.getItem("Userinuse");
+  const tourTuyChon = JSON.parse(localStorage.getItem(`toursCreated_${username}`)) || { route: [] };
+  const tourDaDat = JSON.parse(localStorage.getItem(`bookings_${username}`)) || [];
+  const xeDaThue = JSON.parse(localStorage.getItem(`phuongtiendangthuee_${username}`)) || [];
+
+  let giohang = JSON.parse(localStorage.getItem("giohang"));
+
+  if (!giohang || giohang.username !== username) {
+    giohang = {
+      username: username,
+      tourTuyChon: [],
+      tourDaDat: [],
+      xeDaThue: []
+    };
+  }
+
+  giohang.tourTuyChon.push(...tourTuyChon.route);
+  giohang.tourDaDat.push(...tourDaDat);
+  giohang.xeDaThue.push(...xeDaThue);
+
+  localStorage.setItem("giohang", JSON.stringify(giohang));
+}

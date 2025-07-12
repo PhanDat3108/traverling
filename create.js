@@ -311,7 +311,7 @@ function finishCreateTour() {
     <p><strong>Tổng chi phí:</strong> <span style="color:red;">$${totalCost.toFixed(2)}</span></p>
 
     <div style="text-align:center; margin-top:20px;">
-      <button class="butten-background" onclick="confirmTour()">Xác nhận lưu tour</button>
+<button class="butten-background" onclick="confirmTour()">Xác nhận lưu tour</button>
     </div>
   `;
 
@@ -344,6 +344,9 @@ function confirmTour() {
     createdAt: new Date().toISOString()
   };
 
+  // ✅ Gọi hàm lưu theo từng user
+  luuTourDaTao(tour);
+
   const saved = JSON.parse(localStorage.getItem("toursCreated")) || [];
   saved.push(tour);
   localStorage.setItem("toursCreated", JSON.stringify(saved));
@@ -354,5 +357,4 @@ function confirmTour() {
   localStorage.removeItem("tourCreateTemp");
   document.querySelector(".summary-box").style.display = "none";
   location.reload();
-
 }

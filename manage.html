@@ -69,14 +69,15 @@
         <li><a href="home.html"><img
               src="anh/ChatGPT_Image_14_07_05_9_thg_5__2025-removebg-preview.png"></a></li>
 
-        <li><a href="home.html">Home</a></li>
+       <li><a href="home.html">Home</a></li>
         <li><a href="tour.html">Tour & Deal</a></li>
         <li><a href="vehicle.html">Vehicle</a></li>
         
         <li><a href="create.html">Create Tours</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="booked.html">Booked</a></li>
-        <li><a href="booked.html">About Us</a></li>
+        <li><a href="info.html">About Me</a></li>
+        
         <div  onclick="toggleDropdownLogout()" class="userbox"><i class="fa-solid fa-user" style="color:#7a7676"></i></div>
         <li class="search-icon" style="margin-left:50px"><a href="search.html"><i class="fas fa-search" style="color:#7a7676"></i> </a></li>
 
@@ -111,14 +112,13 @@
        <li style="cursor:pointer" onclick="displayadd('addtours')">Tours</li> 
         
         <li style="cursor:pointer" onclick="displayadd('addphuongtien')">Phương tiện</li>
-        <li style="cursor:pointer" onclick="displayadd('locationadd')">Địa điểm</li>
+        
       </ul>
       <label> <i class="fa-solid fa-handshake"></i> Kiểm soát</label>
        <ul class="manage_setting">
-        <li>Nhân viên</li>
-        <li>Khách hàng</li>
-        <li>Voucher</li>
-        <li>Giao dịch</li>
+         <li style="cursor:pointer" onclick="displayadd('view-cart')">Giao dịch</li>
+        <li style="cursor:pointer" onclick="displayadd('edituser')">Tài khoản</li>
+        
        </ul>
        
 
@@ -183,8 +183,56 @@
     </tbody>
 </table>
      </div>
+<div class="form-box" id="view-cart" style="display: none;">
+  <h2 style="text-align: center; margin: 20px 0; color: #d93769;">Giỏ hàng người dùng</h2>
+
+  <h3>Tour Tự Chọn</h3>
+  <table id="table-tuychon" class="all-tours" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Tên người dùng</th>
+        <th>Tên tour</th>
+        <th>Giá</th>
+        <th>Điểm đến</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h3 style="margin-top: 20px;">Tour Đã Đặt</h3>
+  <table id="table-dadat" class="all-tours" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Tên người dùng</th>
+        <th>Tên tour</th>
+        <th>Giá</th>
+        <th>Số người</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h3 style="margin-top: 20px;">Xe Đã Thuê</h3>
+  <table id="table-xe" class="all-tours" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Tên người dùng</th>
+        <th>Tên xe</th>
+        <th>Giá</th>
+        <th>Số người</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+
 <div class="form-box" id="addphuongtien" >
         <br>
+        
     <label for="image">Image path:</label>
     <input type="text" id="imagexe" placeholder="anh/your_image.jpg">
 
@@ -223,66 +271,31 @@
 </table>
      </div>
   </div>
+  <div class="form-box" id="edituser" style="display: none;">
+  <h2 style="margin-top: 20px; font-size: 24px; color: #ff6c16; text-align: center;">
+    Danh sách người dùng
+  </h2>
+  <table border="1" class="all-tours" style="border-collapse: collapse; width: 100%; text-align: center; background-color: white;">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th>STT</th>
+        <th>Tên đăng nhập</th>
+        <th>Mật khẩu</th>
+        <th>Vai trò</th>
+        <th>Xoá</th> <!-- ✅ Cột xoá -->
+      </tr>
+    </thead>
+    <tbody id="bang-nguoi-dung">
+      <!-- Dữ liệu người dùng sẽ được thêm bằng JavaScript -->
+    </tbody>
+  </table>
 </div>
-  </div>
-  
-  
-  <div class="foot">
-    <div class="foot1">
-      <a href="#top"><img src="anh/output-onlinepngtools.png" width="150px"></a>
-      <p class="foot-info">Book online Nghe An and Ha Tinh tours with 3 simple
-        steps. Secure your information!
-      </p>
-      <br>
-      <br>
-      <hr style="border: none; height: 1px; background-color: #757783;">
-      <ul>
-        <li class="foot-info"><img src="anh/location.png" width="15px"><a> Xóm 3, Nam Nghĩa , Nam Đàn  Nghệ An</a></li>
-        <br>
-        <li class="foot-info"><img src="anh/phone-call.png" width="15px"> <a href>0977574798</a></li>
-        
-        <br>
-        <li class="foot-info"><img src="anh/mail.png" width="15px"><a href="mailto:phandat.ptit@gmail.com"> phandat.ptit@gmail.com</a></li>
 
-      </ul>
-    </div>
-    <div class="foot1" style="margin-left:-80px">
-      <p class="top-foot-info">Before Booking</p>
-      <ul>
-        <li class="foot-info"> <a href>Good to know</a></li>
-        <br>
-        <li class="foot-info"> <a href>Booking and payment</a></li>
-        <br>
-        <li class="foot-info"> <a href>Privacy</a></li>
-
-      </ul>
-
-    </div>
-    <div class="foot1" style="margin-left:-130px">
-      <p class="top-foot-info">Quick links</p>
-      <ul>
-        <li class="foot-info"> <a href>Sign in</a></li>
-        <br>
-        <li class="foot-info"> <a href>Booked</a></li>
-        <br>
-        <li class="foot-info"> <a href>Tours</a></li>
-
-      </ul>
-
-    </p>
-
-  </div>
-  <div class="foot1" style="margin-left:-160px">
-    <p class="top-foot-info">Reviews</p>
-    <ul>
-     
-    
-      <li class="foot-info"><a href> Blog.gonghean</a></li>
-
-    </ul>
-
-  </div>
 </div>
+
+  </div>
+
+
 
 <script src="admin.js"></script>
 <script src="index.js"></script>

@@ -105,10 +105,9 @@
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .form-create-tour button[type="submit"]:hover {
-  
+  margin-left:400px;
   background-color: #45a049;
 }

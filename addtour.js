@@ -68,7 +68,7 @@ window.showTourPopup = function (index) {
     </label><br /><br />
     <p id="totalPrice">Tổng tiền: $${tour.price}</p>
     <br>
-    <div onclick="bookTour(${index})" class="butten-background">Đặt tour</div>
+<div onclick="bookTour(${index}); luuBooking(tours[${index}])" class="butten-background">Đặt tour</div>
   `;
   popup.style.display = "block";
 

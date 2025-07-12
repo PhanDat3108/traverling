@@ -834,3 +834,53 @@ table.all-tours td:nth-child(4)
   border-radius: 15px;
 
 }
+#bang-nguoi-dung {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 10px;
+  color: #000; /* ✅ Chữ đen */
+}
+
+#bang-nguoi-dung th,
+#bang-nguoi-dung td {
+  border: 1px solid #000; /* ✅ Viền đen */
+  padding: 8px 12px;
+  text-align: center;
+}
+
+#bang-nguoi-dung th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #000; /* ✅ Chữ đen trong header */
+}
+
+#bang-nguoi-dung tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#bang-nguoi-dung tr:hover {
+  background-color: rgb(238, 238, 255);
+}
+
+#edituser h2 {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 26px;
+  color: #000; /* ✅ Chữ đen cho tiêu đề */
+}
+
+#edituser table {
+  background: white;
+  border: 1px solid #000; /* ✅ Viền đen cho bảng */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#edituser th, #edituser td {
+  padding: 10px;
+  font-size: 15px;
+  color: #000; /* ✅ Chữ đen */
+  border: 1px solid #000; /* ✅ Viền đen */
+}
